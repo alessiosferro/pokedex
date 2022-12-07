@@ -1,4 +1,4 @@
-import type { CodegenConfig } from '@graphql-codegen/cli'
+import type { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
   schema: 'https://beta.pokeapi.co/graphql/v1beta',
@@ -7,8 +7,8 @@ const config: CodegenConfig = {
   generates: {
     './src/gql/': {
       preset: 'client',
-      plugins: []
-    }
-  }
-}
-export default config
+      plugins: [],
+    },
+  },
+};
+export default config;

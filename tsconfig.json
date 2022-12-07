@@ -19,7 +19,8 @@
       "@/molecules/*": ["src/molecules/*"],
       "@/organisms/*": ["src/organisms/*"],
       "@/templates/*": ["src/templates/*"],
-      "@/hooks/*": ["src/hooks/*"]
+      "@/hooks/*": ["src/hooks/*"],
+      "@/queries/*": ["src/queries/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

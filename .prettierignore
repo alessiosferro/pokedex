@@ -1,0 +1,10 @@
+.next
+next-env.d.ts
+environment.d.ts
+node_modules
+package-lock.json
+public
+.eslintrc.json
+src/index.ts
+out/**/*
+next-i18next.config.js
