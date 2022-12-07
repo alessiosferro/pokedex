@@ -23,7 +23,8 @@
       "@/queries/*": ["src/queries/*"],
       "@/gql/*": ["src/gql/*"],
       "@/fragments/*": ["src/fragments/*"]
-    }
+    },
+    "baseUrl": "./"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
