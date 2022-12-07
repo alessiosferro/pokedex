@@ -1,19 +1,17 @@
-import {useGetPokemonDetail} from "../src/hooks/use-get-pokemon-list";
-
+import { useGetPokemon } from '@/hooks/use-get-pokemon';
 
 export default function Home() {
+  const { data, isLoading } = useGetPokemon('bulbasaur');
 
-  const { data, isLoading } = useGetPokemonDetail("bulbasaur");
+  console.log(data);
 
   if (!data) {
-    return <p>loading...</p>
+    return <p>loading...</p>;
   }
 
   return (
     <>
-      <ul>
-         {data[0].pokemon_v2_pokemonspecy?.pokemon_v2_pokemonspeciesflavortexts[0].flavor_text}
-      </ul>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </>
-  )
+  );
 }
