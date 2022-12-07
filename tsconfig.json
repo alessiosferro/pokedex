@@ -20,7 +20,9 @@
       "@/organisms/*": ["src/organisms/*"],
       "@/templates/*": ["src/templates/*"],
       "@/hooks/*": ["src/hooks/*"],
-      "@/queries/*": ["src/queries/*"]
+      "@/queries/*": ["src/queries/*"],
+      "@/gql/*": ["src/gql/*"],
+      "@/fragments/*": ["src/fragments/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

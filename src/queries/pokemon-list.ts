@@ -1,9 +1,10 @@
-import { graphql } from '../gql';
+import { graphql } from '@/gql/index';
 
 export const pokemonListQuery = graphql(/* GraphQL */ `
   query getPokemonList {
     pokemon_v2_pokemon {
-      ...PokemonName
+      name
+      ...PokemonSprites
       ...PokemonTypes
       ...PokemonGameIndex
     }

@@ -13,22 +13,16 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel-plugin for production.
  */
 const documents = {
-    "\n  query getPokemonDetail($name: String) {\n    pokemon_v2_pokemon(where: { name: { _eq: $name } }) {\n      ...PokemonGameIndex\n      ...PokemonTypes\n      ...PokemonDetail\n      ...PokemonFlavorText\n      ...PokemonStats\n      ...PokemonAbilities\n      ...PokemonSprites\n    }\n  }\n": types.GetPokemonDetailDocument,
     "\n  fragment PokemonStats on pokemon_v2_pokemon {\n    pokemon_v2_pokemonstats {\n      base_stat\n      pokemon_v2_stat {\n        name\n      }\n    }\n  }\n": types.PokemonStatsFragmentDoc,
     "\n  fragment PokemonSprites on pokemon_v2_pokemon {\n    pokemon_v2_pokemonsprites {\n      sprites\n    }\n  }\n": types.PokemonSpritesFragmentDoc,
     "\n  fragment PokemonAbilities on pokemon_v2_pokemon {\n    pokemon_v2_pokemonabilities {\n      pokemon_v2_ability {\n        name\n      }\n    }\n  }\n": types.PokemonAbilitiesFragmentDoc,
     "\n  fragment PokemonTypes on pokemon_v2_pokemon {\n    pokemon_v2_pokemontypes {\n      pokemon_v2_type {\n        name\n      }\n    }\n  }\n": types.PokemonTypesFragmentDoc,
-    "\n  fragment PokemonFlavorText on pokemon_v2_pokemon {\n    pokemon_v2_pokemonspecy {\n      pokemon_v2_pokemonspeciesflavortexts(\n        where: { pokemon_v2_language: { name: { _eq: \"en\" } }, pokemon_v2_version: { name: { _eq: \"sword\" } } }\n        limit: 1\n      ) {\n        flavor_text\n      }\n    }\n  }\n": types.PokemonFlavorTextFragmentDoc,
-    "\n  fragment PokemonGameIndex on pokemon_v2_pokemon {\n    pokemon_v2_pokemongameindices(where: { pokemon_v2_version: { name: { _eq: \"diamond\" } } }) {\n      game_index\n    }\n  }\n": types.PokemonGameIndexFragmentDoc,
-    "\n  fragment PokemonName on pokemon_v2_pokemon {\n    name\n  }\n": types.PokemonNameFragmentDoc,
-    "\n  fragment PokemonDetail on pokemon_v2_pokemon {\n    ...PokemonName\n    height\n    weight\n  }\n": types.PokemonDetailFragmentDoc,
-    "\n  query getPokemonList {\n    pokemon_v2_pokemon {\n      ...PokemonName\n      ...PokemonTypes\n      ...PokemonGameIndex\n    }\n  }\n": types.GetPokemonListDocument,
+    "\n  fragment PokemonFlavorText on pokemon_v2_pokemon {\n    pokemon_v2_pokemonspecy {\n      pokemon_v2_pokemonspeciesflavortexts(\n        where: {\n          pokemon_v2_language: { name: { _eq: \"en\" } }\n          pokemon_v2_version: { name: { _eq: \"sword\" } }\n        }\n        limit: 1\n      ) {\n        flavor_text\n      }\n    }\n  }\n": types.PokemonFlavorTextFragmentDoc,
+    "\n  fragment PokemonGameIndex on pokemon_v2_pokemon {\n    pokemon_v2_pokemongameindices(\n      where: { pokemon_v2_version: { name: { _eq: \"diamond\" } } }\n    ) {\n      game_index\n    }\n  }\n": types.PokemonGameIndexFragmentDoc,
+    "\n  query getPokemonDetail($name: String) {\n    pokemon_v2_pokemon(where: { name: { _eq: $name } }) {\n      ...PokemonGameIndex\n      ...PokemonTypes\n      name\n      height\n      weight\n      ...PokemonFlavorText\n      ...PokemonStats\n      ...PokemonAbilities\n      ...PokemonSprites\n    }\n  }\n": types.GetPokemonDetailDocument,
+    "\n  query getPokemonList {\n    pokemon_v2_pokemon {\n      name\n      ...PokemonSprites\n      ...PokemonTypes\n      ...PokemonGameIndex\n    }\n  }\n": types.GetPokemonListDocument,
 };
 
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  query getPokemonDetail($name: String) {\n    pokemon_v2_pokemon(where: { name: { _eq: $name } }) {\n      ...PokemonGameIndex\n      ...PokemonTypes\n      ...PokemonDetail\n      ...PokemonFlavorText\n      ...PokemonStats\n      ...PokemonAbilities\n      ...PokemonSprites\n    }\n  }\n"): (typeof documents)["\n  query getPokemonDetail($name: String) {\n    pokemon_v2_pokemon(where: { name: { _eq: $name } }) {\n      ...PokemonGameIndex\n      ...PokemonTypes\n      ...PokemonDetail\n      ...PokemonFlavorText\n      ...PokemonStats\n      ...PokemonAbilities\n      ...PokemonSprites\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -48,23 +42,19 @@ export function graphql(source: "\n  fragment PokemonTypes on pokemon_v2_pokemon
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment PokemonFlavorText on pokemon_v2_pokemon {\n    pokemon_v2_pokemonspecy {\n      pokemon_v2_pokemonspeciesflavortexts(\n        where: { pokemon_v2_language: { name: { _eq: \"en\" } }, pokemon_v2_version: { name: { _eq: \"sword\" } } }\n        limit: 1\n      ) {\n        flavor_text\n      }\n    }\n  }\n"): (typeof documents)["\n  fragment PokemonFlavorText on pokemon_v2_pokemon {\n    pokemon_v2_pokemonspecy {\n      pokemon_v2_pokemonspeciesflavortexts(\n        where: { pokemon_v2_language: { name: { _eq: \"en\" } }, pokemon_v2_version: { name: { _eq: \"sword\" } } }\n        limit: 1\n      ) {\n        flavor_text\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  fragment PokemonFlavorText on pokemon_v2_pokemon {\n    pokemon_v2_pokemonspecy {\n      pokemon_v2_pokemonspeciesflavortexts(\n        where: {\n          pokemon_v2_language: { name: { _eq: \"en\" } }\n          pokemon_v2_version: { name: { _eq: \"sword\" } }\n        }\n        limit: 1\n      ) {\n        flavor_text\n      }\n    }\n  }\n"): (typeof documents)["\n  fragment PokemonFlavorText on pokemon_v2_pokemon {\n    pokemon_v2_pokemonspecy {\n      pokemon_v2_pokemonspeciesflavortexts(\n        where: {\n          pokemon_v2_language: { name: { _eq: \"en\" } }\n          pokemon_v2_version: { name: { _eq: \"sword\" } }\n        }\n        limit: 1\n      ) {\n        flavor_text\n      }\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment PokemonGameIndex on pokemon_v2_pokemon {\n    pokemon_v2_pokemongameindices(where: { pokemon_v2_version: { name: { _eq: \"diamond\" } } }) {\n      game_index\n    }\n  }\n"): (typeof documents)["\n  fragment PokemonGameIndex on pokemon_v2_pokemon {\n    pokemon_v2_pokemongameindices(where: { pokemon_v2_version: { name: { _eq: \"diamond\" } } }) {\n      game_index\n    }\n  }\n"];
+export function graphql(source: "\n  fragment PokemonGameIndex on pokemon_v2_pokemon {\n    pokemon_v2_pokemongameindices(\n      where: { pokemon_v2_version: { name: { _eq: \"diamond\" } } }\n    ) {\n      game_index\n    }\n  }\n"): (typeof documents)["\n  fragment PokemonGameIndex on pokemon_v2_pokemon {\n    pokemon_v2_pokemongameindices(\n      where: { pokemon_v2_version: { name: { _eq: \"diamond\" } } }\n    ) {\n      game_index\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment PokemonName on pokemon_v2_pokemon {\n    name\n  }\n"): (typeof documents)["\n  fragment PokemonName on pokemon_v2_pokemon {\n    name\n  }\n"];
+export function graphql(source: "\n  query getPokemonDetail($name: String) {\n    pokemon_v2_pokemon(where: { name: { _eq: $name } }) {\n      ...PokemonGameIndex\n      ...PokemonTypes\n      name\n      height\n      weight\n      ...PokemonFlavorText\n      ...PokemonStats\n      ...PokemonAbilities\n      ...PokemonSprites\n    }\n  }\n"): (typeof documents)["\n  query getPokemonDetail($name: String) {\n    pokemon_v2_pokemon(where: { name: { _eq: $name } }) {\n      ...PokemonGameIndex\n      ...PokemonTypes\n      name\n      height\n      weight\n      ...PokemonFlavorText\n      ...PokemonStats\n      ...PokemonAbilities\n      ...PokemonSprites\n    }\n  }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  fragment PokemonDetail on pokemon_v2_pokemon {\n    ...PokemonName\n    height\n    weight\n  }\n"): (typeof documents)["\n  fragment PokemonDetail on pokemon_v2_pokemon {\n    ...PokemonName\n    height\n    weight\n  }\n"];
-/**
- * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
- */
-export function graphql(source: "\n  query getPokemonList {\n    pokemon_v2_pokemon {\n      ...PokemonName\n      ...PokemonTypes\n      ...PokemonGameIndex\n    }\n  }\n"): (typeof documents)["\n  query getPokemonList {\n    pokemon_v2_pokemon {\n      ...PokemonName\n      ...PokemonTypes\n      ...PokemonGameIndex\n    }\n  }\n"];
+export function graphql(source: "\n  query getPokemonList {\n    pokemon_v2_pokemon {\n      name\n      ...PokemonSprites\n      ...PokemonTypes\n      ...PokemonGameIndex\n    }\n  }\n"): (typeof documents)["\n  query getPokemonList {\n    pokemon_v2_pokemon {\n      name\n      ...PokemonSprites\n      ...PokemonTypes\n      ...PokemonGameIndex\n    }\n  }\n"];
 
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
