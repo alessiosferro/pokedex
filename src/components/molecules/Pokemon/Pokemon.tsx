@@ -20,14 +20,12 @@ export const Pokemon: FC<IPokemon> = ({ pokemon }) => {
   const type = typeFragment.pokemon_v2_pokemontypes[0].pokemon_v2_type
     ?.name as PokemonVariant;
 
-  if (!sprites.front_default) return null;
-
   return (
     <StyledPokemonCard
       $variant={type}
       name={pokemon.name}
       speciesId={pokemon.pokemon_species_id}
-      imageUrl={sprites.front_default}
+      imageUrl={sprites?.other?.['official-artwork']?.front_default}
     />
   );
 };
