@@ -54,13 +54,3 @@ export const PokemonFlavorTextFragment = graphql(/* GraphQL */ `
     }
   }
 `);
-
-export const PokemonGameIndexFragment = graphql(/* GraphQL */ `
-  fragment PokemonGameIndex on pokemon_v2_pokemon {
-    pokemon_v2_pokemongameindices(
-      where: { pokemon_v2_version: { name: { _eq: "diamond" } } }
-    ) {
-      game_index
-    }
-  }
-`);

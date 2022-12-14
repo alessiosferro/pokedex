@@ -10,7 +10,7 @@ import chevronRight from '@/assets/svg/chevron-right.svg';
 
 import Image from 'next/image';
 
-import { StyledChip } from '../src/components/atoms/chip/Chip.styled';
+import { StyledChip } from '../src/components/atoms/Chip/Chip.styled';
 import { pokemonTypes } from '../src/utils/pokemon-types';
 
 const DesignSystem: NextPage = () => {
